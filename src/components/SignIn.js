@@ -14,6 +14,8 @@ class SignIn extends Component {
   handleSubmitLogIn = (event) => {
     event.preventDefault()
     console.log('log in submitted')
+    console.log(this.state)
+    console.log(this.props.baseURL)
   }
 
   render() {
