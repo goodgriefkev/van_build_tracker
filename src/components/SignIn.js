@@ -7,11 +7,20 @@ class SignIn extends Component {
     password: ''
   }
 
+  handleChange = (event) => {
+    this.setState({[event.target.id]: event.target.value})
+  }
+
+  handleSubmitLogIn = (event) => {
+    event.preventDefault()
+    console.log('log in submitted')
+  }
+
   render() {
     return (
       <div>
         <h2>Sign In</h2>
-        <form>
+        <form onSubmit={this.handleSubmitLogIn}>
           <label>
             <input
               type='text'
@@ -19,6 +28,7 @@ class SignIn extends Component {
               id='email'
               value={this.state.email}
               placeholder='email'
+              onChange={this.handleChange}
             />
           </label>
           <label>
@@ -28,6 +38,7 @@ class SignIn extends Component {
               id='password'
               value={this.state.password}
               placeholder='password'
+              onChange={this.handleChange}
             />
           </label>
           <input
