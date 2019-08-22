@@ -16,6 +16,21 @@ class SignIn extends Component {
     console.log('log in submitted')
     console.log(this.state)
     console.log(this.props.baseURL)
+    fetch(this.props.baseURL + '/auth/login', {
+      method: 'POST',
+      body:
+        JSON.stringify({
+          email: this.state.email,
+          password: this.state.password
+        }),
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+      })
+    .catch(error => console.log(error))
   }
 
   render() {
