@@ -14,9 +14,9 @@ class SignIn extends Component {
 
   handleSubmitLogIn = (event) => {
     event.preventDefault()
-    console.log('log in submitted')
-    console.log(this.state)
-    console.log(this.props.baseURL)
+    // console.log('log in submitted')
+    // console.log(this.state)
+    // console.log(this.props.baseURL)
     fetch(this.props.baseURL + '/auth/login', {
       method: 'POST',
       body:
@@ -30,6 +30,19 @@ class SignIn extends Component {
       .then(response => response.json())
       .then(json => {
         console.log(json)
+        if (json.user) {
+          this.setState({
+            email: '',
+            password: '',
+            credentialError: false
+          })
+          this.props.toggleLoggedIn()
+        } else {
+          this.setState({
+            password: '',
+            credentialError: true
+          })
+        }
       })
     .catch(error => console.log(error))
   }
@@ -38,6 +51,11 @@ class SignIn extends Component {
     return (
       <div>
         <h2>Sign In</h2>
+        {
+          this.state.credentialError ?
+          <h2>Username or Password Incorrect</h2> :
+          null
+        }
         <form onSubmit={this.handleSubmitLogIn}>
           <label>
             <input
