@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import CreateUser from './components/CreateUser.js'
 import SignIn from './components/SignIn.js'
+import VanBuild from './components/VanBuild.js'
 
 import { BASE_URL } from './constants.js'
 
@@ -10,9 +12,13 @@ class App extends Component {
     return (
       <div>
         <h1>Van Build Tracker</h1>
+        <CreateUser
+          baseURL = { baseURL }
+        />
         <SignIn
           baseURL = { baseURL }
         />
+        <VanBuild />
       </div>
     )
   }
