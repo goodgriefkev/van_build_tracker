@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
 class VanBuild extends Component {
 
   componentDidMount() {
@@ -23,8 +23,13 @@ class VanBuild extends Component {
   render() {
     return (
       <div>
+        <Link
+          to='/'
+          refresh='true'
+          onClick={ this.props.handleLogOut }>
+          Sign Out
+        </Link>
         <h2>This is the Van Build Component</h2>
-
       </div>
     )
   }

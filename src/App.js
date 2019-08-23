@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
-
 import CreateUser from './components/CreateUser.js'
 import SignIn from './components/SignIn.js'
 import VanBuild from './components/VanBuild.js'
@@ -43,6 +42,17 @@ class App extends Component {
     }
   }
 
+  handleLogOut = () => {
+    console.log("handleLogOut ran")
+    sessionStorage.removeItem('currentUser')
+    fetch(baseURL + '/auth/logout', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    })
+      .then(this.setState({loggedIn: false, user_id: undefined}))
+  }
+
   render() {
     const loggedIn = this.state.loggedIn
     return (
@@ -80,6 +90,7 @@ class App extends Component {
                 <VanBuild
                   baseURL = { baseURL }
                   user_id = { this.state.user_id }
+                  handleLogOut = { this.handleLogOut }
                 />
               ) : (
                     <Redirect to='/' />
