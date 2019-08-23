@@ -36,7 +36,7 @@ class SignIn extends Component {
             password: '',
             credentialError: false
           })
-          this.props.toggleLoggedIn()
+          this.props.handleSetUser(json.user)
         } else {
           this.setState({
             password: '',

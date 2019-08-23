@@ -15,10 +15,12 @@ class App extends Component {
     user_id: undefined
   }
 
-  toggleLoggedIn = () => {
+  handleSetUser = (user) => {
     console.log("toggleLoggedIn ran")
+    console.log('user', user)
     this.setState({
-      loggedIn: !this.state.loggedIn
+      loggedIn: true,
+      user_id: user
     })
   }
 
@@ -37,7 +39,7 @@ class App extends Component {
               ) : (
                   <SignIn
                     baseURL = { baseURL }
-                    toggleLoggedIn = { this.toggleLoggedIn }
+                    handleSetUser = { this.handleSetUser }
                   />
                 )
             )}
