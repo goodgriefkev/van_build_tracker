@@ -33,13 +33,13 @@ class App extends Component {
             path='/'
             render={(routeProps) => (
               loggedIn ? (
-                <Redirect to="/vanbuild"/>
+                <Redirect to='/vanbuild' />
               ) : (
-              <SignIn
-                baseURL = { baseURL }
-                toggleLoggedIn = { this.toggleLoggedIn }
-              />
-              )
+                  <SignIn
+                    baseURL = { baseURL }
+                    toggleLoggedIn = { this.toggleLoggedIn }
+                  />
+                )
             )}
           />
 
@@ -55,10 +55,14 @@ class App extends Component {
           <Route
             path='/vanbuild'
             render={(routeProps) => (
-              <VanBuild
-                baseURL = { baseURL }
-                user_id = { this.state.user_id }
-              />
+              loggedIn ? (
+                <VanBuild
+                  baseURL = { baseURL }
+                  user_id = { this.state.user_id }
+                />
+              ) : (
+                    <Redirect to='/' />
+                  )
             )}
           />
 
