@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import Cookies from 'universal-cookie'
+
 
 import CreateUser from './components/CreateUser.js'
 import SignIn from './components/SignIn.js'
@@ -9,7 +9,8 @@ import VanBuild from './components/VanBuild.js'
 import { BASE_URL } from './constants.js'
 
 const baseURL = BASE_URL
-const cookies = new Cookies()
+
+const currentUser = sessionStorage.getItem('currentUser')
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-
+    this.getCurrentUser()
   }
 
   handleSetUser = (user) => {
@@ -32,7 +33,14 @@ class App extends Component {
   }
 
   getCurrentUser = () => {
-
+    if (currentUser) {
+      this.handleSetUser(currentUser)
+    } else {
+      this.setState({
+        loggedIn: false,
+        user_id: undefined
+      })
+    }
   }
 
   render() {

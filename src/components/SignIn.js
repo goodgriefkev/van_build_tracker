@@ -36,6 +36,7 @@ class SignIn extends Component {
             password: '',
             credentialError: false
           })
+          sessionStorage.setItem('currentUser', json.user)
           this.props.handleSetUser(json.user)
         } else {
           this.setState({
