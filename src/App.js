@@ -11,7 +11,8 @@ const baseURL = BASE_URL
 class App extends Component {
 
   state = {
-    loggedIn: false
+    loggedIn: false,
+    user_id: undefined
   }
 
   toggleLoggedIn = () => {
@@ -54,7 +55,10 @@ class App extends Component {
           <Route
             path='/vanbuild'
             render={(routeProps) => (
-              <VanBuild />
+              <VanBuild
+                baseURL = { baseURL }
+                user_id = { this.state.user_id }
+              />
             )}
           />
 
