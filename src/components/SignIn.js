@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class SignIn extends Component {
 
@@ -63,6 +64,9 @@ class SignIn extends Component {
             value='Sign In'
           />
         </form>
+        <Link to='/signup'>
+          Click here to sign up!
+        </Link>
       </div>
     )
   }

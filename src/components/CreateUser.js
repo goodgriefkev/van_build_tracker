@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class CreateUser extends Component {
 
@@ -61,6 +62,9 @@ class CreateUser extends Component {
             value='Register'
           />
         </form>
+        <Link to='/'>
+          Click here to sign in
+        </Link>
       </div>
     )
   }
