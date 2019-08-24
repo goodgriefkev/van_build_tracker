@@ -30,11 +30,11 @@ class VanBuild extends Component {
       credentials: 'include'
     })
     .then(this.redirect())
-  }
+}
 
-  redirect = () => {
-    this.props.history.push('/')
-  }
+redirect = () => {
+  this.props.history.push('/')
+}
 
   render() {
     const vanbuild = this.state.vanbuild
@@ -50,7 +50,7 @@ class VanBuild extends Component {
           <br/>
           <br/>
           <Link
-            to='/vanbuild'
+            to='/'
             refresh='true'
             onClick={ this.deleteVanBuild }>
             Delete Van Build
