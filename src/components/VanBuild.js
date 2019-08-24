@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import { Button } from 'reactstrap'
 
 class VanBuild extends Component {
 
@@ -41,11 +42,17 @@ redirect = () => {
     return (
       <>
         <div>
+          <button type="button">
+            Options
+          </button>
+          <br/>
           <Link
             to='/'
             refresh='true'
             onClick={ this.props.handleLogOut }>
-            Sign Out
+            <button type="button">
+              Sign Out
+            </button>
           </Link>
           <br/>
           <br/>
@@ -53,7 +60,9 @@ redirect = () => {
             to='/'
             refresh='true'
             onClick={ this.deleteVanBuild }>
-            Delete Van Build
+              <button type="button">
+                Delete Van Build
+              </button>
           </Link>
         </div>
         <br/>
