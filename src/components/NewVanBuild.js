@@ -85,14 +85,28 @@ class NewVanBuild extends Component {
 
   handleCreateVanBuild = (event) => {
     event.preventDefault()
-    console.log('submit new van build button clicked, yay!')
+    fetch(this.props.baseURL + '/api/vanbuilds', {
+      method: 'POST',
+      body:
+        JSON.stringify({
+          name: this.state.name,
+          make: this.state.make,
+          model: this.state.model,
+          year: this.state.year,
+          user_id: this.props.user_id
+        }),
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    })
+      .then(response => response.json())
+      .then(json => console.log(json))
   }
 
   render() {
     return (
       <>
         <h2>Start a New Van Build</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleCreateVanBuild}>
           <label>Name: </label>
           <input
             type='text'
