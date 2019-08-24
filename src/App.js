@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { Container,
+        Jumbotron } from 'reactstrap'
 
 import CreateUser from './components/CreateUser.js'
 import SignIn from './components/SignIn.js'
 import VanBuild from './components/VanBuild.js'
 import NewVanBuild from './components/NewVanBuild.js'
+import VanBuildEdit from './components/VanBuildEdit.js'
 
 import { BASE_URL } from './constants.js'
 
@@ -59,7 +62,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1>Van Build Tracker</h1>
+          <Container fluid>
+            <Jumbotron>
+              <h1 className='display-2'>Van Build Tracker</h1>
+              <p className='lead'>#vanlife is a real thing</p>
+            </Jumbotron>
 
           <Route exact
             path='/'
@@ -74,7 +81,6 @@ class App extends Component {
                 )
             )}
           />
-
           <Route
             path='/signup'
             render={(routeProps) => (
@@ -115,6 +121,14 @@ class App extends Component {
             )}
           />
 
+          <Route
+            path='/editvanbuild'
+            render={(routeProps) => (
+              <VanBuildEdit />
+            )}
+          />
+
+          </Container>
         </div>
       </Router>
     )

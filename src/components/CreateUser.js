@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Container,
+          Button} from 'reactstrap'
 
 class CreateUser extends Component {
 
@@ -34,8 +36,10 @@ class CreateUser extends Component {
 
   render() {
     return (
+      <>
+      <Container fluid>
       <div>
-        <h2>This is the Create User Component</h2>
+        <h2>Create an Account</h2>
         <form onSubmit={this.handleSubmitCreateUser}>
           <label>
             <input
@@ -63,9 +67,13 @@ class CreateUser extends Component {
           />
         </form>
         <Link to='/'>
-          Click here to sign in
+          <Button type='button'>
+            Click here to sign in
+          </Button>
         </Link>
       </div>
+      </Container>
+      </>
     )
   }
 }

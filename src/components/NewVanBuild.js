@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Container } from 'reactstrap'
 
 class NewVanBuild extends Component {
 
@@ -178,6 +179,8 @@ class NewVanBuild extends Component {
   render() {
     return (
       <>
+      <Container fluid>
+      <div>
         <h2>Start a New Van Build</h2>
         <form onSubmit={this.handleCreateVanBuild}>
           <label>Name: </label>
@@ -769,7 +772,7 @@ class NewVanBuild extends Component {
                   onChange={this.handleChange}
                   value={this.state.toilet_type}
                   placeholder='Yep'
-                />toilet_brand
+                />
                 <br/>
                 <label>Toilet Brand: </label>
                 <input
@@ -852,8 +855,8 @@ class NewVanBuild extends Component {
               <br/>
               <label>Air Conditioning: </label>
               <select
-                id='heater'
-                name='heater'
+                id='ac'
+                name='ac'
                 onChange={this.handleChange}
                 value={this.state.ac}
               >
@@ -1042,7 +1045,13 @@ class NewVanBuild extends Component {
             value='Create Build'
           />
         </form>
+        <br/>
+        <br/>
+        </div>
+        </Container>
       </>
+
+
     )
   }
 }

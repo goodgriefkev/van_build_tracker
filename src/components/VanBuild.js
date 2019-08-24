@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { Button } from 'reactstrap'
+import { Button,
+          ButtonGroup,
+          Container } from 'reactstrap'
 
 class VanBuild extends Component {
 
   state = {
-    vanbuild: {}
+    vanbuild: {},
+    optionsView: false
   }
 
   componentDidMount() {
     this.getVanBuild()
+  }
+
+  toggleOptions = () => {
+    this.setState({ optionsView : !this.state.optionsView })
+    console.log("toggleOptions ran")
   }
 
   getVanBuild = (event) => {
@@ -41,29 +49,46 @@ redirect = () => {
     const vanbuild = this.state.vanbuild
     return (
       <>
+        <Container fluid>
         <div>
-          <button type="button">
+          <Button
+            type='button'
+            color='info'
+            onClick={ this.toggleOptions }
+            >
             Options
-          </button>
+          </Button>
           <br/>
-          <Link
-            to='/'
-            refresh='true'
-            onClick={ this.props.handleLogOut }>
-            <button type="button">
-              Sign Out
-            </button>
-          </Link>
-          <br/>
-          <br/>
-          <Link
-            to='/'
-            refresh='true'
-            onClick={ this.deleteVanBuild }>
-              <button type="button">
-                Delete Van Build
-              </button>
-          </Link>
+
+          { this.state.optionsView === true ?
+            <ButtonGroup>
+              <Link
+                to='/editvanbuild'
+                refresh='true'>
+                <Button type='button' color='secondary'>
+                  Edit Van Build
+                </Button>
+              </Link>
+              <Link
+                to='/'
+                refresh='true'
+                onClick={ this.props.handleLogOut }>
+                <Button type='button' color='warning'>
+                  Sign Out
+                </Button>
+              </Link>
+              <Link
+                to='/'
+                refresh='true'
+                onClick={ this.deleteVanBuild }>
+                  <Button type='button' color='danger'>
+                    Delete Van Build
+                  </Button>
+              </Link>
+            </ButtonGroup>
+            : null
+          }
+
         </div>
         <br/>
         <div>
@@ -342,6 +367,7 @@ redirect = () => {
             <Redirect to='/newvanbuild' />
             }
         </div>
+        </Container>
       </>
     )
   }

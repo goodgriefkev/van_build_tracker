@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Container,
+          Button } from 'reactstrap'
 
 class SignIn extends Component {
 
@@ -50,6 +52,8 @@ class SignIn extends Component {
 
   render() {
     return (
+      <>
+      <Container fluid>
       <div>
         <h2>Sign In</h2>
         {
@@ -84,9 +88,13 @@ class SignIn extends Component {
           />
         </form>
         <Link to='/signup'>
-          Click here to sign up!
+          <Button type='button'>
+            Click here to sign up!
+          </Button>
         </Link>
       </div>
+      </Container>
+      </>
     )
   }
 }
