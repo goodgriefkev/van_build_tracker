@@ -104,6 +104,7 @@ class App extends Component {
             render={(routeProps) => (
               loggedIn ? (
                 <NewVanBuild
+                  {...routeProps}
                   baseURL = { baseURL }
                   user_id = { this.state.user_id }
                 />

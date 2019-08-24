@@ -48,23 +48,41 @@ class VanBuild extends Component {
                   <tr><td>Model: { vanbuild.model }</td></tr>
                   <tr><td>Year: { vanbuild.year }</td></tr>
                   <tr><td>Color: { vanbuild.color }</td></tr>
-                  <tr><td>Flooring: { vanbuild.flooring_material }</td></tr>
-                  <tr><td>Flooring Installed:
-                    { vanbuild.flooring_installed ?
-                    ' Yes' :
-                    ' No' }
+                  <tr><td>
+                    { vanbuild.flooring_material ?
+                      <>
+                        <p>Flooring: { vanbuild.flooring_material }</p>
+                        <p>Flooring Installed:
+                        { vanbuild.flooring_installed ?
+                        ' Yes' :
+                        ' No' }
+                        </p>
+                      </>
+                      : null }
                     </td></tr>
-                  <tr><td>Insulation: { vanbuild.insulation_material }</td></tr>
-                  <tr><td>Insulation Installed:
-                    { vanbuild.insulation_installed ?
-                      ' Yes' :
-                      ' No' }
+                  <tr><td>
+                    { vanbuild.insulation_material ?
+                      <>
+                        <p>Insulation: { vanbuild.insulation_material }</p>
+                        <p>Insulation Installed:
+                        { vanbuild.insulation_installed ?
+                        ' Yes' :
+                        ' No' }
+                        </p>
+                      </>
+                      : null }
                     </td></tr>
-                  <tr><td>Wall Panels: { vanbuild.wall_material }</td></tr>
-                  <tr><td>Wall Panelling Installed:
-                    { vanbuild.wall_installed ?
-                      ' Yes' :
-                      ' No' }
+                  <tr><td>
+                    { vanbuild.wall_material ?
+                      <>
+                        <p>Wall Panels: { vanbuild.wall_material }</p>
+                        <p>Wall Panels Installed:
+                        { vanbuild.wall_installed ?
+                        ' Yes' :
+                        ' No' }
+                        </p>
+                      </>
+                      : null }
                     </td></tr>
                   <tr><td>
                     { vanbuild.battery_house ?
