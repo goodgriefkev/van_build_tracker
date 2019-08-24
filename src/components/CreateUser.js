@@ -39,7 +39,7 @@ class CreateUser extends Component {
         <form onSubmit={this.handleSubmitCreateUser}>
           <label>
             <input
-              type='text'
+              type='email'
               name='email'
               id='email'
               value={this.state.email}

@@ -60,7 +60,7 @@ class SignIn extends Component {
         <form onSubmit={this.handleSubmitLogIn}>
           <label>
             <input
-              type='text'
+              type='email'
               name='email'
               id='email'
               value={this.state.email}
