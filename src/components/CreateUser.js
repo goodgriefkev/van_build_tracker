@@ -28,7 +28,8 @@ class CreateUser extends Component {
             email: this.state.email,
             password: this.state.password
           }),
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include'
       })
       .catch(error => console.log(error))
     }
