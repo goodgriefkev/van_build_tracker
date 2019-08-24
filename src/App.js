@@ -89,6 +89,7 @@ class App extends Component {
             render={(routeProps) => (
               loggedIn ? (
                 <VanBuild
+                  {...routeProps}
                   baseURL = { baseURL }
                   user_id = { this.state.user_id }
                   handleLogOut = { this.handleLogOut }

@@ -168,10 +168,10 @@ class NewVanBuild extends Component {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include'
     })
-      .then(this.buildCreated())
+      .then(this.redirect())
   }
 
-  buildCreated = () => {
+  redirect = () => {
     this.props.history.push('/')
   }
 

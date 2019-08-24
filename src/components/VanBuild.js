@@ -24,6 +24,18 @@ class VanBuild extends Component {
     ))
   }
 
+  deleteVanBuild = (event) => {
+    fetch(this.props.baseURL + '/api/vanbuilds/' + this.state.vanbuild.id, {
+      method: 'DELETE',
+      credentials: 'include'
+    })
+    .then(this.redirect())
+  }
+
+  redirect = () => {
+    this.props.history.push('/')
+  }
+
   render() {
     const vanbuild = this.state.vanbuild
     return (
@@ -34,6 +46,14 @@ class VanBuild extends Component {
             refresh='true'
             onClick={ this.props.handleLogOut }>
             Sign Out
+          </Link>
+          <br/>
+          <br/>
+          <Link
+            to='/vanbuild'
+            refresh='true'
+            onClick={ this.deleteVanBuild }>
+            Delete Van Build
           </Link>
         </div>
         <br/>
