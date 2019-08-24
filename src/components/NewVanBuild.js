@@ -84,20 +84,24 @@ class NewVanBuild extends Component {
       <>
         <h2>Start a New Van Build</h2>
         <form onSubmit={this.handleSubmit}>
+          <label>Name: </label>
           <input
-            type=''
-            id=''
-            name=''
+            type='name'
+            id='name'
+            name='name'
             onChange={this.handleChange}
-            value={this.state.}
-            placeholder=''
+            value={this.state.name}
+            placeholder='van name'
           />
+          <br/>
           <input
             type='submit'
             value='Create Build'
           />
-        </form
+        </form>
       </>
     )
   }
 }
+
+export default NewVanBuild

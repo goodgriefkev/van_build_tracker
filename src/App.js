@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import CreateUser from './components/CreateUser.js'
 import SignIn from './components/SignIn.js'
 import VanBuild from './components/VanBuild.js'
+import NewVanBuild from './components/NewVanBuild.js'
 
 import { BASE_URL } from './constants.js'
 
@@ -95,6 +96,20 @@ class App extends Component {
               ) : (
                     <Redirect to='/' />
                   )
+            )}
+          />
+
+          <Route
+            path='/newvanbuild'
+            render={(routeProps) => (
+              loggedIn ? (
+                <NewVanBuild
+                  baseURL = { baseURL }
+                  user_id = { this.state.user_id }
+                />
+              ) : (
+                <Redirect to='/' />
+              )
             )}
           />
 
